@@ -139,9 +139,6 @@
             <p id="subtext" class="text-lg md:text-xl text-gray-400 mt-6 font-light opacity-0">
                 Mechanical Engineering Student || University of Alberta
             </p>
-            <a href="#experience" class="inline-block px-8 py-4 border-2 border-tech-accent-3 text-main-text font-bold uppercase tracking-wider hover-effect rounded-lg mt-8 opacity-0">
-                View Work
-            </a>
         </div>
     </section>
 
@@ -316,7 +313,6 @@
             introText.style.opacity = "0";
             nameText.style.opacity = "0";
             subtext.style.opacity = "0";
-            viewWorkBtn.style.opacity = "0";
 
             // Sequence of animations
             setTimeout(() => {
@@ -344,18 +340,10 @@
                     subtext.classList.add("slide-in-up");
                 }, 800);
 
-                setTimeout(() => {
-                    viewWorkBtn.classList.remove("opacity-0");
-                    viewWorkBtn.classList.add("slide-in-up");
-                }, 1200);
-
             }, phaseTwoDelay); 
         });
     </script>
 
 </body>
 </html>
-
-
-
 
