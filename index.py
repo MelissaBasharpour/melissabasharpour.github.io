@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Melissa's Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        :root {
+            --dark-bg: #0C0C0C;
+            --main-text: #F0F0F0;
+            --tech-accent-1: #AA0DD1;
+            --tech-accent-2: #470DD1;
+            --tech-accent-3: #0D34D1;
+        }
+
+        body {
+            background-color: var(--dark-bg);
+            color: var(--main-text);
+            font-family: 'Inter', sans-serif;
+        }
+
+        .text-tech-accent-1 {
+            color: var(--tech-accent-1);
+        }
+
+        .text-tech-accent-2 {
+            color: var(--tech-accent-2);
+        }
+
+        .border-tech-accent-1 {
+            border-color: var(--tech-accent-1);
+        }
+        
+        .bg-tech-accent-2 {
+            background-color: var(--tech-accent-2);
+        }
+        
+        .hover-effect:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(170, 13, 209, 0.2);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .tech-grid {
+            background-image: linear-gradient(to right, rgba(255,255,255,0.1) 1px, transparent 1px),
+                              linear-gradient(to bottom, rgba(255,255,255,0.1) 1px, transparent 1px);
+            background-size: 25px 25px;
+        }
+
+        .scroll-to-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            z-index: 50;
+        }
+        
+        .fade-in {
+            animation: fadeIn 1s ease-in-out forwards;
+        }
+
+        .dot-pop {
+            animation: dotPop 0.5s ease-in-out forwards;
+            opacity: 0;
+            transform: scale(0);
+        }
+
+        .slide-in-up {
+            animation: slideInUp 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        
+        .move-up-and-shrink {
+            animation: moveUpAndShrink 1s ease-in-out forwards;
+        }
+        
+        .slide-in-down {
+            animation: slideInDown 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+            opacity: 0;
+            transform: translateY(-20px);
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        @keyframes dotPop {
+            0% { transform: scale(0); opacity: 0; }
+            50% { transform: scale(1.2); opacity: 1; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+        
+        @keyframes moveUpAndShrink {
+            0% { transform: translateY(0) scale(1); }
+            100% { transform: translateY(-10px) scale(0.8); }
+        }
+        
+        @keyframes slideInUp {
+            from { transform: translateY(20px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        
+        @keyframes slideInDown {
+            from { transform: translateY(-20px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+    </style>
+</head>
+<body class="antialiased tech-grid">
+
+    <header class="fixed top-0 left-0 w-full z-50 p-4 bg-dark-bg bg-opacity-90 backdrop-blur-sm shadow-xl">
+        <div class="container mx-auto flex items-center justify-between">
+            <a href="#hero" class="text-3xl font-bold text-main-text relative">
+                <span class="text-tech-accent-1">&lt;</span>Melissa<span class="text-tech-accent-1">&gt;</span>
+            </a>
+            <nav class="hidden md:flex space-x-8">
+                <a href="#about" class="text-main-text hover:text-tech-accent-1 transition-colors duration-300">About</a>
+                <a href="#skills" class="text-main-text hover:text-tech-accent-1 transition-colors duration-300">Skills</a>
+                <a href="#experience" class="text-main-text hover:text-tech-accent-1 transition-colors duration-300">Experience</a>
+                <a href="#additional-info" class="text-main-text hover:text-tech-accent-1 transition-colors duration-300">Info</a>
+                <a href="#contact" class="text-main-text hover:text-tech-accent-1 transition-colors duration-300">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <section id="hero" class="min-h-screen flex items-center justify-center text-center p-8 relative overflow-hidden">
+        <div class="relative z-10 flex flex-col items-center">
+            <div id="intro-container">
+                <h1 class="text-5xl md:text-7xl font-bold text-main-text tracking-tight leading-tight">
+                    <span id="intro-text">Introducing</span><span id="dots"></span>
+                </h1>
+                <h1 id="name-text" class="text-5xl md:text-7xl font-bold text-tech-accent-1 mt-4 opacity-0">Melissa Basharpour</h1>
+            </div>
+            <p id="subtext" class="text-lg md:text-xl text-gray-400 mt-6 font-light opacity-0">
+                Mechanical Engineering Student || University of Alberta
+            </p>
+            <a href="#experience" class="inline-block px-8 py-4 border-2 border-tech-accent-3 text-main-text font-bold uppercase tracking-wider hover-effect rounded-lg mt-8 opacity-0">
+                View Work
+            </a>
+        </div>
+    </section>
+
+    <section id="about" class="py-8 p-8 bg-dark-bg">
+        <div class="container mx-auto max-w-4xl">
+            <h2 class="text-4xl md:text-5xl text-center font-bold text-tech-accent-1 mb-8">
+                // ABOUT ME //
+            </h2>
+            <div class="flex flex-col md:flex-row items-center md:space-x-8">
+                <div class="mb-6 md:mb-0 md:w-1/3 flex-shrink-0">
+                    <img src="https://placehold.co/300x300/470DD1/ffffff?text=Melissa" alt="Melissa Basharpour" class="rounded-lg border-2 border-tech-accent-2 hover-effect mx-auto w-48 h-48 md:w-full md:h-auto object-cover">
+                </div>
+                <div class="md:w-2/3 text-lg leading-relaxed text-gray-400 text-left">
+                    <p class="mb-4">
+                        Hello, I'm Melissa, and I'm in my second year at the University of Alberta. I have a lot of interests in the innovation and design process of projects, specifically in the aerospace field.
+                    </p>
+                    <p>
+                        While I am still building direct engineering experience, the skills I’ve developed through my work, studies, and hobbies have prepared me with valuable transferable skills. I hope this website gives you a better sense of who I am and what drives me.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills" class="py-8 p-8 bg-dark-bg">
+        <div class="container mx-auto max-w-5xl">
+            <h2 class="text-4xl md:text-5xl text-center font-bold text-tech-accent-1 mb-8">
+                // SKILLS //
+            </h2>
+            <div class="flex flex-col md:flex-row justify-center space-y-6 md:space-y-0 md:space-x-6">
+                
+                <div class="flex-1 bg-[#1a1a1a] rounded-xl p-4 border border-gray-800 hover-effect">
+                    <h3 class="text-xl font-bold text-tech-accent-3 mb-4 text-center">CAD & Design</h3>
+                    <ul class="flex flex-col space-y-2">
+                        <li class="px-3 py-1 bg-tech-accent-3 text-main-text font-semibold rounded-full text-center text-sm">SolidWorks</li>
+                        <li class="px-3 py-1 bg-tech-accent-3 text-main-text font-semibold rounded-full text-center text-sm">AutoCAD</li>
+                    </ul>
+                </div>
+                
+                <div class="flex-1 bg-[#1a1a1a] rounded-xl p-4 border border-gray-800 hover-effect">
+                    <h3 class="text-xl font-bold text-tech-accent-3 mb-4 text-center">Analysis & Simulation</h3>
+                    <ul class="flex flex-col space-y-2">
+                        <li class="px-3 py-1 bg-tech-accent-3 text-main-text font-semibold rounded-full text-center text-sm">Microsoft Office</li>
+                        <li class="px-3 py-1 bg-tech-accent-3 text-main-text font-semibold rounded-full text-center text-sm">Python</li>
+                    </ul>
+                </div>
+
+                <div class="flex-1 bg-[#1a1a1a] rounded-xl p-4 border border-gray-800 hover-effect">
+                    <h3 class="text-xl font-bold text-tech-accent-3 mb-4 text-center">Fabrication & Tools</h3>
+                    <ul class="flex flex-col space-y-2">
+                        <li class="px-3 py-1 bg-tech-accent-3 text-main-text font-semibold rounded-full text-center text-sm">3D Printing (FDM)</li>
+                        <li class="px-3 py-1 bg-tech-accent-3 text-main-text font-semibold rounded-full text-center text-sm">CO2 Laser Cutter</li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="experience" class="py-8 p-8 bg-dark-bg">
+        <div class="container mx-auto max-w-5xl">
+            <h2 class="text-4xl md:text-5xl text-center font-bold text-tech-accent-1 mb-8">
+                // EXPERIENCE //
+            </h2>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                
+                <div class="bg-[#1a1a1a] rounded-xl overflow-hidden border border-gray-800 hover-effect">
+                    <img src="https://placehold.co/600x400/470DD1/ffffff?text=Gymnastics" alt="Gymnastics Coach" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold text-tech-accent-3 mb-1">Gymnastics Coach</h3>
+                        <p class="text-md font-semibold text-gray-400 mb-1">Norfort Gymnastics Club</p>
+                        <p class="text-sm text-gray-500 mb-4">Sept 2021 - August 2024 | Fort McMurray, AB</p>
+                        <p class="text-sm text-gray-400">As a child I was a competitive gymnast, and later turned to coaching. During my time, I had the opportunity to work closely with other coaches, parents, and supervisors, which strengthened my communication and collaboration skills. I learned how to adapt my communication style depending on the audience, whether it was providing updates to leadership, coordinating with other coaches, engaging with parents to ensure shared understanding, or teaching athletes new skills. This experience also taught me the importance of teamwork, patience, and professionalism when working toward common goals.</p>
+                    </div>
+                </div>
+
+                <div class="bg-[#1a1a1a] rounded-xl overflow-hidden border border-gray-800 hover-effect">
+                    <img src="https://placehold.co/600x400/0D34D1/ffffff?text=City+Park" alt="Parks Labourer" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold text-tech-accent-3 mb-1">Parks Labourer</h3>
+                        <p class="text-md font-semibold text-gray-400 mb-1">Regional Municipality of Wood Buffalo</p>
+                        <p class="text-sm text-gray-500 mb-4">May 2025 - August 2025 | Fort McMurray, AB</p>
+                        <p class="text-sm text-gray-400">During my summer, I supported a variety of landscaping and maintenance projects that contributed to the community’s outdoor spaces. From planting and pruning to operating tools and equipment, I learned the importance of working carefully and safely while maintaining a strong attention to detail. The role also gave me valuable experience collaborating with teammates, coordinating with other departments, and contributing to municipal projects and community initiatives. Through this, I strengthened my teamwork, adaptability, and communication skills while gaining exposure to how public sector operations function behind the scenes.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="additional-info" class="py-8 p-8 bg-dark-bg">
+        <div class="container mx-auto max-w-4xl text-center">
+            <h2 class="text-4xl md:text-5xl font-bold text-tech-accent-1 mb-6">
+                // ADDITIONAL INFORMATION //
+            </h2>
+            <div class="grid grid-cols-1 gap-6">
+                <div class="bg-[#1a1a1a] rounded-xl p-6 border border-gray-800 hover-effect">
+                    <h3 class="text-xl font-bold text-tech-accent-3 mb-4">Hobbies</h3>
+                    <div class="flex flex-col sm:flex-row justify-around items-start gap-4">
+                        <div class="text-center hover-effect p-2 rounded-lg flex-1">
+                            <img src="https://placehold.co/100x100/470DD1/ffffff?text=Hiking" alt="Hiking" class="rounded-lg mx-auto mb-2 border-2 border-tech-accent-2">
+                            <p class="text-gray-400 font-semibold">Hiking</p>
+                            <p class="text-xs text-gray-500 mt-1 px-1">Exploring local trails and finding scenic views.</p>
+                        </div>
+                        <div class="text-center hover-effect p-2 rounded-lg flex-1">
+                            <img src="https://placehold.co/100x100/0D34D1/ffffff?text=Photo" alt="Photography" class="rounded-lg mx-auto mb-2 border-2 border-tech-accent-2">
+                            <p class="text-gray-400 font-semibold">Photography</p>
+                            <p class="text-xs text-gray-500 mt-1 px-1">Capturing moments from my travels and everyday life.</p>
+                        </div>
+                        <div class="text-center hover-effect p-2 rounded-lg flex-1">
+                            <img src="https://placehold.co/100x100/AA0DD1/ffffff?text=Cooking" alt="Cooking" class="rounded-lg mx-auto mb-2 border-2 border-tech-accent-2">
+                            <p class="text-gray-400 font-semibold">Cooking</p>
+                            <p class="text-xs text-gray-500 mt-1 px-1">Experimenting with new recipes and cuisines.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-[#1a1a1a] rounded-xl p-6 border border-gray-800 hover-effect">
+                    <h3 class="text-xl font-bold text-tech-accent-3 mb-2">Skills & Certifications</h3>
+                    <ul class="inline-block text-left text-gray-400 space-y-2">
+                        <li>WHMIS Certified</li>
+                        <li>Languages: English, Farsi</li>
+                        <li>Standard First Aid & CPR</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="py-8 p-8 bg-dark-bg">
+        <div class="container mx-auto max-w-xl text-center">
+            <h2 class="text-4xl md:text-5xl font-bold text-tech-accent-1 mb-6">
+                // CONTACT //
+            </h2>
+            <p class="text-lg mb-6 text-gray-400">
+                I'm always open to new opportunities and collaborations. Let's build something great together.
+            </p>
+            <div class="flex flex-col md:flex-row items-center justify-center space-y-4 md:space-y-0 md:space-x-6">
+                <a href="mailto:your.email@example.com" class="px-6 py-3 border-2 border-tech-accent-3 text-main-text font-bold uppercase hover-effect rounded-lg">
+                    Email Me
+                </a>
+                <a href="https://linkedin.com/in/yourprofile" target="_blank" class="px-6 py-3 border-2 border-tech-accent-3 text-main-text font-bold uppercase hover-effect rounded-lg">
+                    LinkedIn
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <a href="#hero" class="scroll-to-top bg-dark-bg rounded-full p-3 text-tech-accent-1 border-2 border-tech-accent-1 hover:bg-tech-accent-1 hover:text-dark-bg transition-colors duration-300">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M5 10l7-7m0 0l7 7m-7-7v18" />
+        </svg>
+    </a>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const introContainer = document.getElementById("intro-container");
+            const introText = document.getElementById("intro-text");
+            const dotsContainer = document.getElementById("dots");
+            const nameText = document.getElementById("name-text");
+            const subtext = document.getElementById("subtext");
+            const viewWorkBtn = document.querySelector("#hero a");
+
+            const dots = [...Array(3)].map(() => {
+                const span = document.createElement("span");
+                span.textContent = ".";
+                span.classList.add("dot");
+                dotsContainer.appendChild(span);
+                return span;
+            });
+
+            // Initial state
+            introText.style.opacity = "0";
+            nameText.style.opacity = "0";
+            subtext.style.opacity = "0";
+            viewWorkBtn.style.opacity = "0";
+
+            // Sequence of animations
+            setTimeout(() => {
+                introText.classList.add("fade-in");
+            }, 500);
+
+            setTimeout(() => {
+                dots.forEach((dot, index) => {
+                    setTimeout(() => {
+                        dot.classList.add("dot-pop");
+                    }, index * 400); 
+                });
+            }, 1000);
+
+            const phaseTwoDelay = 1000 + (dots.length * 400) + 500;
+
+            setTimeout(() => {
+                introContainer.classList.add("move-up-and-shrink");
+                
+                nameText.classList.remove("opacity-0");
+                nameText.classList.add("fade-in");
+
+                setTimeout(() => {
+                    subtext.classList.remove("opacity-0");
+                    subtext.classList.add("slide-in-up");
+                }, 800);
+
+                setTimeout(() => {
+                    viewWorkBtn.classList.remove("opacity-0");
+                    viewWorkBtn.classList.add("slide-in-up");
+                }, 1200);
+
+            }, phaseTwoDelay); 
+        });
+    </script>
+
+</body>
+</html>
+
+
